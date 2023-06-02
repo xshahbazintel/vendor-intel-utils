@@ -3,13 +3,17 @@ name: Run CI checks
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, labeled]
+    types: "**"
     branches: "**"
   pull_request_review:
-    types: [submitted]
+    types: "**"
     branches: "**"
 jobs:
-  TriggerWorkfows:
-    uses: projectceladon/celadonworkflows/.github/workflows/trigger_ci.yml@v1.0
-    with:
-      EVENT: ${{ toJSON(github.event) }}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ toJSON(github.event) }}"
+#   TriggerWorkfows:
+#     uses: projectceladon/celadonworkflows/.github/workflows/trigger_ci.yml@v1.0
+#     with:
+#       EVENT: ${{ toJSON(github.event) }}
