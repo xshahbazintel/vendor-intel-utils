@@ -66,3 +66,5 @@ function get_build_var()
         (\cd $T; build/soong/soong_ui.bash --dumpvar-mode $1)
     fi
 }
+
+
